@@ -51,6 +51,7 @@ public class SpringApplicationContextInitializer implements ApplicationContextIn
         addCloudProfile(appEnvironment);
 
         excludeAutoConfiguration(appEnvironment);
+
     }
 
     private void addCloudProfile(ConfigurableEnvironment appEnvironment) {
