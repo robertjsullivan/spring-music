@@ -3,6 +3,8 @@ spring:
     generate-ddl: true
 
 management:
+  cloudfoundry:
+    enabled: false
   info:
     env:
       enabled: true
