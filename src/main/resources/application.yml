@@ -3,11 +3,24 @@ spring:
     generate-ddl: true
 
 management:
+  info:
+    env:
+      enabled: true
+    build:
+      enabled: true
+    git:
+      enabled: true
+    java:
+      enabled: true
+    os:
+      enabled: true
   endpoints:
     web:
       exposure:
         include: "*"
   endpoint:
+    env:
+      show-values: always
     health:
       show-details: always
 
