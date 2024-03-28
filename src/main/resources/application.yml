@@ -1,6 +1,13 @@
 spring:
   jpa:
     generate-ddl: true
+  sleuth:
+    exporter:
+      otlp:
+        enabled: false
+        endpoint: "http://wavefront-proxy.service.internal:4317"
+    propagation:
+      type: W3C
 
 management:
   info:
@@ -17,7 +24,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: 
   endpoint:
     env:
       show-values: always
