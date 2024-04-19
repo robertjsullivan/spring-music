@@ -47,6 +47,7 @@ dependencies {
 
     // Java CfEnv
     implementation "io.pivotal.cfenv:java-cfenv-boot:${javaCfEnvVersion}"
+    implementation 'org.projectlombok:lombok:1.18.20'
 
     // JPA Persistence
     runtimeOnly "org.apache.commons:commons-pool2"

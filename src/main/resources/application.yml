@@ -3,6 +3,9 @@ spring:
     generate-ddl: true
 
 management:
+  open-telemetry:
+    resource-attributes:
+      spring.instance.id: value1sasfafs
   wavefront:
     uri: https://telegraf.hub-collector.service.internal:8765
     application:
