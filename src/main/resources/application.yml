@@ -4,7 +4,10 @@ spring:
 
 management:
   wavefront:
+    uri: https://telegraf.hub-collector.service.internal:8765
     application:
+      name: spring-music-e2e
+      service-name: spring-music-db
       custom-tags:
         instance_guid: ${CF_INSTANCE_GUID}
   info:
@@ -44,6 +47,9 @@ management:
       enabled: true
       show-details: ALWAYS
 
+#logging:
+#  level:
+#    ROOT: DEBUG
 ---
 spring:
   config:
@@ -54,32 +60,32 @@ server:
   http2:
     enabled: true
 
----
-spring:
-  config:
-    activate:
-      on-profile: mysql
-  datasource:
-    url: "jdbc:mysql://localhost/music"
-    driver-class-name: com.mysql.jdbc.Driver
-    username:
-    password:
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL55Dialect
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: mysql
+#  datasource:
+#    url: "jdbc:postgresql://q-s0.postgres-instance.rare-1232661-services-subnet.service-instance-d6b14617-194c-48c2-9355-0bd1b0f54460.bosh:5432/postgres?user=pgadmin&password=30OZdSrPC497TF186X52/music"
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: pgadmin
+#    password: 30OZdSrPC497TF186X52
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL55Dialect
 
----
-spring:
-  config:
-    activate:
-      on-profile: postgres
-  datasource:
-    url: "jdbc:postgresql://localhost/music"
-    driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: postgres
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.ProgressDialect
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: postgres
+#  datasource:
+#    url: "jdbc:postgresql://q-s0.postgres-instance.rare-1232661-services-subnet.service-instance-d6b14617-194c-48c2-9355-0bd1b0f54460.bosh:5432/postgres?user=pgadmin&password=30OZdSrPC497TF186X52/music"
+#    driver-class-name: org.postgresql.Driver
+#    username: pgadmin
+#    password: 30OZdSrPC497TF186X52
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.ProgressDialect
