@@ -3,13 +3,46 @@ spring:
     generate-ddl: true
 
 management:
+  wavefront:
+    application:
+      custom-tags:
+        instance_guid: ${CF_INSTANCE_GUID}
+  info:
+    #    build-timestamp: @maven.build.timestamp@
+    git:
+      enabled: true
+      mode: full
+    env:
+      enabled: true
+    java:
+      enabled: true
   endpoints:
     web:
       exposure:
         include: "*"
   endpoint:
+    info:
+      show-values: ALWAYS
+      git:
+        mode: full
+    beans:
+      enabled: true
+    conditions:
+      enabled: true
+    configprops:
+      enabled: true
+      show-values: ALWAYS
+    env:
+      show-values: ALWAYS
+    loggers:
+      enabled: true
+    mappings:
+      enabled: true
+    probes:
+      enabled: true
     health:
-      show-details: always
+      enabled: true
+      show-details: ALWAYS
 
 ---
 spring:
@@ -45,7 +78,7 @@ spring:
     url: "jdbc:postgresql://localhost/music"
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password:
+    password: postgres
   jpa:
     properties:
       hibernate:

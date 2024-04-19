@@ -4,6 +4,24 @@ plugins {
     id 'java'
     id 'eclipse-wtp'
     id 'idea'
+    id 'com.gorylenko.gradle-git-properties' version '1.4.17'
+//    id 'io.github.cyclonedx.bom' version '1.6.2'
+}
+
+//cycloneDxBom {
+//    outputFile = file('build/bom/bom.json')
+//    outputFormat = 'json'
+//    includeBomSerialNumber = true
+//    includeCompileScope = true
+//    includeProvidedScope = true
+//    includeRuntimeScope = true
+//    includeSystemScope = true
+//    includeTestScope = true
+//}
+
+
+springBoot  {
+    buildInfo()
 }
 
 repositories {
@@ -54,6 +72,8 @@ dependencies {
     // Testing
     testImplementation "junit:junit"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
+
+    implementation 'org.cyclonedx:cyclonedx-gradle-plugin:1.7.2'
 }
 
 java {

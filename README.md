@@ -131,3 +131,17 @@ In `manifest.yml`, uncomment and change the Java buildpack JRE version:
 ~~~
 
 Set the version to `11.+` for Java 11 or `17.+` for Java 17.
+
+#### Setup for E2E
+
+~~~
+# view the services available
+$ cf create-space spring-e2e
+$ cf marketplace
+# create a service instance
+$ cf create-service <service> <service plan> <service name>
+# bind the service instance to the application
+$ cf bind-service <app name> <service name>
+# restart the application so the new service is detected
+$ cf restart
+~~~
